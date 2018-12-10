@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenTK;
 
 namespace OpenTKTutorialPentamollis
 {
     class Program
     {
+        public static GameWindow window;
+        public static Game game;
+        public static ImmediateArtist immediateArtist;
+        public static VBOArtist vboArtist;
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
-
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            window = new GameWindow(640, 360);
+            game = new Game(window);
+            immediateArtist = new ImmediateArtist();
+            vboArtist = new VBOArtist();
+            window.Run(1D / 60D);
         }
     }
 }
